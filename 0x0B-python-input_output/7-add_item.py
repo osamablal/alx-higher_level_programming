@@ -1,20 +1,17 @@
 #!/usr/bin/python3
-"""
-7-add_item module
-"""
-import sys
-import json
-import os.path
-save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
-load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
+from sys import argv
+"""access commandline arguments"""
+load_from_json_file = __import__('8-load_from_json_file').load_from_json_file
+"""create object from JSON file"""
+save_to_json_file = __import__('7-save_to_json_file').save_to_json_file
+"""writes an object to text file, using JSON representation"""
 
-file = "add_item.json"
-json_list = []
+filename = "add_item.json"
+try:
+    content = load_from_json_file(filename)
+except:
+    content = []
 
-if os.path.exists(file):
-    json_list = load_from_json_file(file)
-
-for i in range(1, len(sys.argv)):
-    json_list.append(sys.argv[i])
-
-save_to_json_file(json_list, file)
+for i in range(1, len(argv)):
+    content.append(argv[i])
+save_to_json_file(content, filename)
