@@ -1,4 +1,2 @@
--- Converts the entire database hbtn_0c_0 to UTF8.
-USE `hbtn_0c_0`
-ALTER TABLE `first_table`
-CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+-- Inserts a new row into the table first_table in my MySQL server.
+INSERT INTO `first_table` (`id`, `name`) VALUES (89, "Best School");
